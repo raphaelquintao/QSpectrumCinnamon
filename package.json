@@ -1,0 +1,15 @@
+{
+  "name": "qspectrum",
+  "version": "0.1.0",
+  "private": true,
+  "description": "",
+  "type": "commonjs",
+  "main": "files/qspectrum@quintao/desklet.js",
+   "scripts": {
+    "reload": "dbus-send --session --dest=org.Cinnamon.LookingGlass --type=method_call /org/Cinnamon/LookingGlass org.Cinnamon.LookingGlass.ReloadExtension string:'qspectrum@quintao' string:'DESKLET'"
+  },
+
+  "devDependencies": {
+    "@ci-types/cjs": "^6.0.2-5"
+  }
+}

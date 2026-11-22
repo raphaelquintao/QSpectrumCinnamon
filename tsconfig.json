@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./files/qspectrum@quintao",
+    "allowJs": true,
+    "checkJs": false,
+    "target": "ES2024",
+    "moduleResolution": "node16"
+  },
+  "include": [
+    "files/qspectrum@quintao"
+  ]
+  
+}
