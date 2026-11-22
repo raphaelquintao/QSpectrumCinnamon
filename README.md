@@ -5,6 +5,10 @@
   <p>Beautiful, fluid, and dependency-free.</p>
 </div>
 
+| Bars | Glow | Circular |
+|------|------|----------|
+| <img src="screenshots/bars.gif" alt="QSpectrum"> | <img src="screenshots/bars_mirror_glow.gif" alt="QSpectrum"> | <img src="screenshots/circular.gif" alt="QSpectrum"> | 
+
 ---
 
 QSpectrum brings the audio visualization experience Cinnamon has been missing. For too long, desktop audio visualization has been restricted to external helpers and dependency-heavy applications. QSpectrum changes that. Written entirely in native CJS, it offers a sleek, high-performance experience that integrates seamlessly into your workflow. It leverages hardware-accelerated GLSL shaders for fluid, cinematic visuals while managing resources with precision to keep your system responsive. More than just a visualizer, QSpectrum is a precision-engineered aesthetic engine designed to feel truly at home on your desktop.
