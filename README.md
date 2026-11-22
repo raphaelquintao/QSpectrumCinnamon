@@ -5,9 +5,9 @@
   <p>Beautiful, fluid, and dependency-free.</p>
 </div>
 
-| Bars | Glow | Circular |
-|------|------|----------|
-| <img src="screenshots/bars.gif" alt="QSpectrum"> | <img src="screenshots/bars_mirror_glow.gif" alt="QSpectrum"> | <img src="screenshots/circular.gif" alt="QSpectrum"> | 
+| Bars | Sunset                                             | Circular                                             |
+|------|----------------------------------------------------|------------------------------------------------------|
+| <img src="screenshots/bars.gif" alt="QSpectrum"> | <img src="screenshots/sunset.gif" alt="QSpectrum"> | <img src="screenshots/circular.gif" alt="QSpectrum"> | 
 
 ---
 
