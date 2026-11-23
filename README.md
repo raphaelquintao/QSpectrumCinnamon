@@ -30,7 +30,7 @@
 
 QSpectrum brings the audio visualization experience Cinnamon has been missing. For too long, desktop audio visualization has been restricted to external helpers and dependency-heavy applications. QSpectrum changes that. Written entirely in native CJS, it offers a sleek, high-performance experience that integrates seamlessly on Cinnamon. It leverages hardware-accelerated GLSL shaders for fluid, cinematic visuals while managing resources with precision to keep your system responsive. More than just a visualizer, QSpectrum is a precision-engineered aesthetic engine designed to feel truly at home on your desktop.
 
-Original Repository: [https://github.com/raphaelquintao/QRedshiftCinnamon](https://github.com/raphaelquintao/QSpectrumCinnamon)
+Original Repository: [https://github.com/raphaelquintao/QSpectrumCinnamon](https://github.com/raphaelquintao/QSpectrumCinnamon)
 
 ## Installation
 
