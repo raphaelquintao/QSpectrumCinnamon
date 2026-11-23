@@ -51,8 +51,8 @@ Display individual frequency bars, a continuous filled area, or a waveform-like 
 
 Custom GLSL shader effects that go beyond conventional spectrum representations.
 
-- **Fire Ring** — An audio-reactive ring of flames and particles, with continuously evolving movement and intensity.
-- **Sunset** — A synthwave-inspired landscape featuring a striped sun, spectrum-shaped mountains, and a reflective, rippling sea.
+- **Fire Ring** - An audio-reactive ring of flames and particles, with continuously evolving movement and intensity.
+- **Sunset** - A synthwave inspired landscape featuring a striped sun, spectrum-shaped mountains, and a reflective, rippling sea.
 
 ## Features
 
