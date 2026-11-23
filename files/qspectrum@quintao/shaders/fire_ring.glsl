@@ -5,7 +5,7 @@
 // Fire Ring - 64 independent flame tongues around a hoop, each one licking on
 // its own and growing with its own spectrum band.
 
-// QSpectrum advanced preset. Original GLSL Shader
+// QSpectrum advanced preset. Original GLSL.
 
 
 uniform float u_time;
