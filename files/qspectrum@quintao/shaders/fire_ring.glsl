@@ -99,8 +99,9 @@ void main() {
   float treble = clamp(u_treble, 0.0, 1.0);
   float level = clamp(u_level, 0.0, 1.0);
   float beat = clamp(u_beat, 0.0, 1.0);
-  // Gentle agitation only; the fire should breathe, not race.
-  float flick = 1.0 + 0.1 * 1 + 0.5 * 1;
+  // Gentle agitation only; the fire should breathe.
+  float flick = 1.7;
+//  flick += 0.01 * treble;
   float tt = t * flick;
 
   // --- hoop -----------------------------------------------------------------

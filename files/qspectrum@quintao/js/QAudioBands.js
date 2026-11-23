@@ -24,7 +24,7 @@ const GC_INTERVAL_MS = 5000;
 // once and remember whether it worked so callers can degrade gracefully.
 let GST_READY = false;
 try {
-  Gst.init([]);
+  Gst.init(null);
   GST_READY = true;
 } catch (e) {
   qLOG.e('QAudioBands: GStreamer init failed', e);

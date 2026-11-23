@@ -1,8 +1,18 @@
-# Attributions
+# Mathematical Foundations & Attributions
 
-QSpectrum stands on the shoulders of giants. Every mathematical transformation, filter, and visual technique used here is documented below to honor the authors, researchers, and open-source maintainers who made this possible.
+This document records the mathematical ideas, signal-processing techniques, rendering methods, implementation choices, and external work behind QSpectrum.
 
-QSpectrum itself is licensed under **Apache-2.0**; the third-party items below maintain their own licenses.
+It serves two purposes:
+
+1. **Attribution:** preserve the authors, researchers, projects, standards, and references that are useful when tracing an idea back to its source.
+2. **Engineering notes:** explain what each technique does, where QSpectrum uses it, and which parameters or adaptations are specific to this project.
+
+The equations below describe the relevant mathematical models. They are not all implemented as standalone algorithms by QSpectrum: some processing is performed by GStreamer, some is implemented in QSpectrum, and some is used inside GLSL shaders.
+
+When revisiting this document, distinguish between the established mathematical definition and the particular implementation or tuning used by QSpectrum.
+
+QSpectrum is licensed under **Apache-2.0**. Third-party libraries, code, and resources retain their respective licenses. A mathematical concept or published equation is not itself a software dependency; code copied or adapted from another project must be evaluated under that project's license.
+
 
 ## Table of Contents
 - [Audio Capture & FFT](#audio-capture-and-fft)
@@ -58,11 +68,12 @@ QSpectrum does not implement the transform itself: GStreamer's `spectrum` elemen
 - **Value noise** — Smoothstep-interpolated lattice noise. [The Book of Shaders](https://thebookofshaders.com/11/)
 - **Fractional Brownian motion (fBm)** — Multi-octave noise (Mandelbrot & Van Ness, 1968). [Wikipedia](https://en.wikipedia.org/wiki/Fractional_Brownian_motion) | [Inigo Quilez](https://iquilezles.org/articles/fbm/)
 - **Domain warping** — Noise-warped noise fields. [Inigo Quilez](https://iquilezles.org/articles/warp/)
+- **Ridged multifractal** — Inverted-abs noise for lacy flame strands (Kent, Musgrave & Mace, *The Synthesis and Rendering of Eroded Fractal Terrains*, SIGGRAPH 1989). [DOI](https://doi.org/10.1145/74333.74337)
+- **Beer–Lambert law** — Exponential transmittance `1 - exp(-density)` for translucent fire. [Wikipedia](https://en.wikipedia.org/wiki/Beer%E2%80%93Lambert_law)
 - **Rounded-box SDF** — Inset frame mask for Sunset. [Inigo Quilez](https://iquilezles.org/articles/distfunctions2d/)
 - **Blackbody ramp** — Fire Ring palette (approximates Planckian locus). [Wikipedia](https://en.wikipedia.org/wiki/Planckian_locus)
 - **Hue rotation** — Rodrigues' rotation formula. [Wikipedia](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula)
 - **Sobel operator** — 3x3 gradient kernels for Outline (Sobel & Feldman, 1968). [Wikipedia](https://en.wikipedia.org/wiki/Sobel_operator)
-- **Luma** — Rec. 709 coefficients. [Wikipedia](https://en.wikipedia.org/wiki/Rec._709)
 - **Random dithering** — 1/255 noise floor to break gradient banding. [Wikipedia](https://en.wikipedia.org/wiki/Dither)
 
 ## Technical Notes
@@ -71,4 +82,3 @@ QSpectrum does not implement the transform itself: GStreamer's `spectrum` elemen
 | :--- | :--- |
 | **Parameters** | Falloff knock `0.028`, noise reduction `0.77`, tilt exponent `0.7475`. |
 | **Monstercat** | Refers to the visual style; implementation is CAVA's `monstercat_filter` (Karl Stavestrand, MIT). |
-| **Custom Filters** | The **skirt**, **smooth**, and **gaussian** filters are custom QSpectrum implementations. |
