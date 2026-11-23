@@ -1,8 +1,12 @@
 <div align="center">
   <img src="files/qspectrum@quintao/icon.png" width="120" alt="QSpectrum">
   <h1>QSpectrum</h1>
-  <p><b>Bring your desktop to life with a sleek, modern, native audio visualizer that turns any sound into real-time GPU-shaded motion.</b></p>
+  <p><b>Bring your cinnamon to life with a sleek, modern, native audio visualizer that turns any sound into real-time GPU-shaded motion.</b></p>
   <p>Beautiful, fluid, and dependency-free.</p>
+
+[![GitHub Release](https://img.shields.io/github/v/release/raphaelquintao/QSpectrumCinnamon?include_prereleases&display_name=release&logo=github)](https://github.com/raphaelquintao/QSpectrumCinnamon/releases/latest)
+[![GitHub Release](https://img.shields.io/github/downloads/raphaelquintao/QSpectrumCinnamon/total?labelColor=hsl(210,2%,25%)&color=hsl(20,74%,40%))](https://github.com/raphaelquintao/QSpectrumCinnamon/releases/latest)
+
 </div>
 
 
@@ -26,6 +30,15 @@
 
 QSpectrum brings the audio visualization experience Cinnamon has been missing. For too long, desktop audio visualization has been restricted to external helpers and dependency-heavy applications. QSpectrum changes that. Written entirely in native CJS, it offers a sleek, high-performance experience that integrates seamlessly on Cinnamon. It leverages hardware-accelerated GLSL shaders for fluid, cinematic visuals while managing resources with precision to keep your system responsive. More than just a visualizer, QSpectrum is a precision-engineered aesthetic engine designed to feel truly at home on your desktop.
 
+Original Repository: [https://github.com/raphaelquintao/QRedshiftCinnamon](https://github.com/raphaelquintao/QSpectrumCinnamon)
+
+## Installation
+
+```shell
+curl https://github.com/raphaelquintao/QSpectrumCinnamon/raw/master/install.sh -sSfL | bash 
+```
+
+
 ## Choose Your Visual Style
 QSpectrum comes with three visualization styles, each offering a different way to bring your audio to life.
 
@@ -48,14 +61,6 @@ Go beyond traditional spectrum bars with GPU-powered visual effects rendered usi
 - **Post-Processing Shaders:** Adjustable glow, chromatic aberration, CRT effects, heat haze, and more.
 - **Multi-Instance:** Run up to 10 independent QSpectrum instances simultaneously.
 
-## Installation
-```bash
-git clone https://github.com/raphaelquintao/qspectrumcinnamon.git
-cd qspectrumcinnamon
-ln -s "$PWD/files/qspectrum@quintao" ~/.local/share/cinnamon/desklets/qspectrum@quintao
-```
-
-Then, open your Cinnamon Desklet settings to add the QSpectrum desklet to your desktop.
 
 ## Troubleshooting
 - **No visualizer showing?** Ensure GStreamer 1.x is installed with the `spectrum` element (`gst-plugins-good`).
@@ -63,48 +68,6 @@ Then, open your Cinnamon Desklet settings to add the QSpectrum desklet to your d
 - **CPU/RAM usage?** We manage the heap manually, but if it feels sluggish, try lowering the **Render Rate** in the settings.
 - **Audio source?** QSpectrum defaults to the system's output monitor. Check your Cinnamon sound settings if you are trying to capture specific input.
 
-## Configuration Reference
-<details>
-<summary>Click to view settings details</summary>
-
-### General
-| Setting                | Description                                                  |
-|------------------------|--------------------------------------------------------------|
-| **Visualizer Style**   | Which renderer to use: *Circular*, *Vertical* or *Advanced*. |
-| **Silence Threshold**  | The noise floor (dB). Discards low-level signal noise.       |
-| **Render Rate**        | Frames per second (default `60`). Drop to save power.        |
-| **Resize with Scroll** | Scale canvas size live by scrolling over the desklet.        |
-
-### Appearance
-| Setting                     | Description                                                                                    |
-|-----------------------------|------------------------------------------------------------------------------------------------|
-| **Show Desklet Background** | Draws a background panel and border.                                                           |
-| **Color Theme**             | Choose from *Neon*, *Sunset*, *Mono*, *Matrix*, *Vaporwave*, *Cyberpunk*, *Tron*, or *Custom*. |
-| **Glow Settings**           | Configure Strength, Radius, and Core Boost for sampled blur effects.                           |
-| **Shade Effects**           | Apply post-effects like *Chromatic aberration*, *CRT*, *Heat haze*, *Glitch*, etc.             |
-
-### Circular
-| Setting                    | Description                                            |
-|----------------------------|--------------------------------------------------------|
-| **Ring Canvas Size**       | Side of the square canvas (px).                        |
-| **Ring Substyle**          | *Radial Bars* or *Area*.                               |
-| **Mirror**                 | Repeats the spectrum 4x around the ring.               |
-| **Spectral Centroid Bias** | Biases rotation/speed based on audio "center of mass". |
-
-### Vertical
-| Setting           | Description                                |
-|-------------------|--------------------------------------------|
-| **Canvas Width**  | Width in pixels.                           |
-| **Bars Substyle** | *Vertical Bars*, *Area*, or *Line*.        |
-| **Grow Bars**     | Mirrors bars horizontally from the center. |
-
-### Advanced
-| Setting              | Description                                 |
-|----------------------|---------------------------------------------|
-| **Advanced preset**  | *Fire Ring* or *Sunset*.                    |
-| **Effect intensity** | Controls the strength of the shader output. |
-| **Animation speed**  | Sets the shader clock frequency.            |
-</details>
 
 ## Credits & License
 QSpectrum is built upon decades of mathematical insight and digital signal processing wisdom. This project stands on the shoulders of giants. Every algorithm is carefully implemented, and full attributions are available in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
