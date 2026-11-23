@@ -5,15 +5,20 @@
   <p>Beautiful, fluid, and dependency-free.</p>
 </div>
 
+
 <div align="center">
 
-| Bars                                             | Circular                                             | Fire Ring                                             | Cinematic Sunset                                   |
-|--------------------------------------------------|------------------------------------------------------|-------------------------------------------------------|----------------------------------------------------|
-| <img src="screenshots/bars.gif" alt="QSpectrum"> | <img src="screenshots/circular.gif" alt="QSpectrum"> | <img src="screenshots/fire_ring.gif" alt="QSpectrum"> | <img src="screenshots/sunset.gif" alt="QSpectrum"> | 
+<table align="center">
+  <tr>
+    <td><img src="screenshots/bars.gif" alt="QSpectrum"></td>
+    <td><img src="screenshots/circular.gif" alt="QSpectrum"></td>
+  </tr>  
+  <tr>
+    <td><img src="screenshots/sunset.gif" alt="QSpectrum"></td>
+    <td><img src="screenshots/fire_ring.gif" width="262px" alt="QSpectrum"></td>
+  </tr>
+</table>
 
-
-
- 
 
 </div>
 
@@ -40,7 +45,7 @@ Go beyond traditional spectrum bars with GPU-powered visual effects rendered usi
 - **Three Core Styles:** Circular, Vertical, and Advanced.
 - **Cinematic Shaders:** Pre-built *Fire Ring* and *Sunset* presets.
 - **Theme Engine:** Eight built-in themes plus full custom color control.
-- **Post-Processing:** Adjustable glow, chromatic aberration, CRT effects, heat haze, and more.
+- **Post-Processing Shaders:** Adjustable glow, chromatic aberration, CRT effects, heat haze, and more.
 - **Multi-Instance:** Run up to 10 independent QSpectrum instances simultaneously.
 
 ## Installation
@@ -63,46 +68,46 @@ Then, open your Cinnamon Desklet settings to add the QSpectrum desklet to your d
 <summary>Click to view settings details</summary>
 
 ### General
-| Setting | Description |
-| --- | --- |
-| **Visualizer Style** | Which renderer to use: *Circular*, *Vertical* or *Advanced*. |
-| **Silence Threshold** | The noise floor (dB). Discards low-level signal noise. |
-| **Render Rate** | Frames per second (default `60`). Drop to save power. |
-| **Resize with Scroll** | Scale canvas size live by scrolling over the desklet. |
+| Setting                | Description                                                  |
+|------------------------|--------------------------------------------------------------|
+| **Visualizer Style**   | Which renderer to use: *Circular*, *Vertical* or *Advanced*. |
+| **Silence Threshold**  | The noise floor (dB). Discards low-level signal noise.       |
+| **Render Rate**        | Frames per second (default `60`). Drop to save power.        |
+| **Resize with Scroll** | Scale canvas size live by scrolling over the desklet.        |
 
 ### Appearance
-| Setting | Description |
-| --- | --- |
-| **Show Desklet Background** | Draws a background panel and border. |
-| **Color Theme** | Choose from *Neon*, *Sunset*, *Mono*, *Matrix*, *Vaporwave*, *Cyberpunk*, *Tron*, or *Custom*. |
-| **Glow Settings** | Configure Strength, Radius, and Core Boost for sampled blur effects. |
-| **Shade Effects** | Apply post-effects like *Chromatic aberration*, *CRT*, *Heat haze*, *Glitch*, etc. |
+| Setting                     | Description                                                                                    |
+|-----------------------------|------------------------------------------------------------------------------------------------|
+| **Show Desklet Background** | Draws a background panel and border.                                                           |
+| **Color Theme**             | Choose from *Neon*, *Sunset*, *Mono*, *Matrix*, *Vaporwave*, *Cyberpunk*, *Tron*, or *Custom*. |
+| **Glow Settings**           | Configure Strength, Radius, and Core Boost for sampled blur effects.                           |
+| **Shade Effects**           | Apply post-effects like *Chromatic aberration*, *CRT*, *Heat haze*, *Glitch*, etc.             |
 
 ### Circular
-| Setting | Description |
-| --- | --- |
-| **Ring Canvas Size** | Side of the square canvas (px). |
-| **Ring Substyle** | *Radial Bars* or *Area*. |
-| **Mirror** | Repeats the spectrum 4x around the ring. |
+| Setting                    | Description                                            |
+|----------------------------|--------------------------------------------------------|
+| **Ring Canvas Size**       | Side of the square canvas (px).                        |
+| **Ring Substyle**          | *Radial Bars* or *Area*.                               |
+| **Mirror**                 | Repeats the spectrum 4x around the ring.               |
 | **Spectral Centroid Bias** | Biases rotation/speed based on audio "center of mass". |
 
 ### Vertical
-| Setting | Description |
-| --- | --- |
-| **Canvas Width** | Width in pixels. |
-| **Bars Substyle** | *Vertical Bars*, *Area*, or *Line*. |
-| **Grow Bars** | Mirrors bars horizontally from the center. |
+| Setting           | Description                                |
+|-------------------|--------------------------------------------|
+| **Canvas Width**  | Width in pixels.                           |
+| **Bars Substyle** | *Vertical Bars*, *Area*, or *Line*.        |
+| **Grow Bars**     | Mirrors bars horizontally from the center. |
 
 ### Advanced
-| Setting | Description |
-| --- | --- |
-| **Advanced preset** | *Fire Ring* or *Sunset*. |
+| Setting              | Description                                 |
+|----------------------|---------------------------------------------|
+| **Advanced preset**  | *Fire Ring* or *Sunset*.                    |
 | **Effect intensity** | Controls the strength of the shader output. |
-| **Animation speed** | Sets the shader clock frequency. |
+| **Animation speed**  | Sets the shader clock frequency.            |
 </details>
 
 ## Credits & License
-QSpectrum is built upon decades of mathematical insight and digital signal processing wisdom. From the foundational brilliance of the Cooley-Tukey FFT to the nuanced filter designs found in CAVA, this project stands on the shoulders of giants. Every algorithm is carefully implemented, and full attributions are available in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
+QSpectrum is built upon decades of mathematical insight and digital signal processing wisdom. This project stands on the shoulders of giants. Every algorithm is carefully implemented, and full attributions are available in [ATTRIBUTIONS.md](ATTRIBUTIONS.md).
 
 QSpectrum is released under the Apache-2.0 License. See [LICENSE.txt](LICENSE.txt).
 
