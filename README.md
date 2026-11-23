@@ -89,7 +89,7 @@ GStreamer is part of the standard Linux multimedia ecosystem and is already avai
 - **Performance issues:** Reduce the *Render Rate* to decrease rendering frequency and GPU workload.
 - **No audio response:** QSpectrum monitors system audio output by default. Check your Cinnamon sound settings and selected audio source.
 
-## Credits & License
+## License
 
 Released under the [Apache License 2.0](LICENSE.txt).
 
