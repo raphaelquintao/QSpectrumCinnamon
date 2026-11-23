@@ -4,19 +4,6 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-const Cairo = imports.cairo;
-const Mainloop = imports.mainloop;
-const Clutter = imports.gi.Clutter;
-const Gtk = imports.gi.Gtk;
-const Lang = imports.lang;
-const Cinnamon = imports.gi.Cinnamon;
-const Signals = imports.signals;
-const St = imports.gi.St;
-const Atk = imports.gi.Atk;
-const Gio = imports.gi.Gio;
-
-const BoxPointer = imports.ui.boxpointer;
-const DND = imports.ui.dnd;
 const Main = imports.ui.main;
 const ByteArray = imports.byteArray;
 const GLib = imports.gi.GLib;
@@ -42,7 +29,6 @@ function lerp(if_t_zero, if_t_one, t) {
  * @param {Function} fn
  * @param {number} delay_ms
  * @return {Function}
- * @see https://lodash.com/docs/#throttle
  */
 function THROTTLE(fn, delay_ms) {
   let last_call = 0;
@@ -70,7 +56,6 @@ function THROTTLE(fn, delay_ms) {
  * @param {Function} fn
  * @param {number} delay_ms
  * @return {Function}
- * @see https://lodash.com/docs/#debounce
  */
 function DEBOUNCE(fn, delay_ms) {
   let pending_timer = null;
@@ -261,48 +246,16 @@ qLOG.e = (msg, ...data) => _qLOG('e', msg, ...data);
 qLOG.t = (msg, ...data) => _qLOG('t', msg, ...data);
 
 
-// Easing curves ported from AHEasing (Warren Moore), which itself models
-// Robert Penner's easing equations. Every curve maps a normalized progress
-// p in [0, 1] to an eased value (overshoot curves like back/elastic go a
-// bit outside that range on purpose).
-// Source: https://github.com/warrenm/AHEasing (easing.c); Penner,
-// http://robertpenner.com/easing/
+
 const M_PI_2 = Math.PI / 2;
 
 /*
- * count: 31
- linearInterpolation    0.0000  0.2500  0.5000  0.7500  1.0000
- quadraticEaseIn        0.0000  0.0625  0.2500  0.5625  1.0000
- quadraticEaseOut       0.0000  0.4375  0.7500  0.9375  1.0000
- quadraticEaseInOut     0.0000  0.1250  0.5000  0.8750  1.0000
- cubicEaseIn            0.0000  0.0156  0.1250  0.4219  1.0000
- cubicEaseOut           0.0000  0.5781  0.8750  0.9844  1.0000
- cubicEaseInOut         0.0000  0.0625  0.5000  0.9375  1.0000
- quarticEaseIn          0.0000  0.0039  0.0625  0.3164  1.0000
- quarticEaseOut         0.0000  0.6836  0.9375  0.9961  1.0000
- quarticEaseInOut       0.0000  0.0313  0.5000  0.9688  1.0000
- quinticEaseIn          0.0000  0.0010  0.0313  0.2373  1.0000
- quinticEaseOut         0.0000  0.7627  0.9688  0.9990  1.0000
- quinticEaseInOut       0.0000  0.0156  0.5000  0.9844  1.0000
- sineEaseIn             0.0000  0.0761  0.2929  0.6173  1.0000
- sineEaseOut            0.0000  0.3827  0.7071  0.9239  1.0000
- sineEaseInOut          0.0000  0.1464  0.5000  0.8536  1.0000
- circularEaseIn         0.0000  0.0318  0.1340  0.3386  1.0000
- circularEaseOut        0.0000  0.6614  0.8660  0.9682  1.0000
- circularEaseInOut      0.0000  0.0670  0.5000  0.9330  1.0000
- exponentialEaseIn      0.0000  0.0055  0.0313  0.1768  1.0000
- exponentialEaseOut     0.0000  0.8232  0.9688  0.9945  1.0000
- exponentialEaseInOut   0.0000  0.0156  0.5000  0.9844  1.0000
- elasticEaseIn          0.0000  -0.0051  -0.0221  0.0676  1.0000
- elasticEaseOut         0.0000  0.9324  1.0221  1.0051  1.0000
- elasticEaseInOut       0.0000  -0.0110  0.5000  1.0110  1.0000
- backEaseIn             0.0000  -0.1612  -0.3750  -0.1085  1.0000
- backEaseOut            0.0000  1.1085  1.3750  1.1612  1.0000
- backEaseInOut          0.0000  -0.1875  0.5000  1.1875  1.0000
- bounceEaseIn           -0.0000  0.0411  0.2813  0.5273  1.0000
- bounceEaseOut          0.0000  0.4727  0.7187  0.9589  1.0000
- bounceEaseInOut        -0.0000  0.1406  0.5000  0.8594  1.0000
- * */
+ * Easing curves ported from AHEasing (Warren Moore), which itself models
+ * Robert Penner's easing equations. Every curve maps a normalized progress
+ * p in [0, 1] to an eased value (overshoot curves like back/elastic go a
+ * bit outside that range on purpose).
+ * Source: https://github.com/warrenm/AHEasing (easing.c);
+ */
 class Easing {
   
   /**

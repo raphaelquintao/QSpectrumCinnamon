@@ -1,16 +1,12 @@
-// Sunset — synthwave sunset over water: retro striped sun, spectrum-driven
+// Copyright (c) 2026 - Raphael Quintao <raphaelquintao@gmail.com>
+// https://github.com/raphaelquintao/qspectrumcinnamon
+// SPDX-License-Identifier: Apache-2.0
+//
+// Sunset - synthwave sunset over water: retro striped sun, spectrum-driven
 // mountain ridges and a rippled reflection on the sea.
-// QSpectrum advanced preset. Original GLSL. Noise/hash sources: see
-// ATTRIBUTIONS.md.
 //
-// Layout: `p` spans the canvas with y = -1 at the top and y = +1 at the bottom,
-// divided by ZOOM so the whole scene sits closer to the camera; the horizon is
-// at y = HORIZON. The canvas is 16:9 (see PRESET_ASPECT in
-// QAdvancedVisualizer.js). Nothing is drawn outside the canvas, so the scene
-// never clamps against an edge.
-//
-// Reactivity: the ridges follow the spectrum as a continuous curve, like the
-// Bars preset in "area" mode; the sun reacts to beats only.
+// QSpectrum advanced preset. Original GLSL.
+
 
 uniform float u_time;
 uniform float u_intensity;

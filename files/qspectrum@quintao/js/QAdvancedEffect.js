@@ -16,13 +16,6 @@ const {qLOG} = QUtils;
 // preset gets its own effect class. Shader files live in
 // <desklet>/shaders/<preset>.glsl and are read on demand (first use), then
 // cached for the session.
-//
-// Shader contract: GLSLEffect blends with SRC_COLOR * SRC_A, so shaders must
-// write straight (non-premultiplied) color plus coverage to cogl_color_out.
-//
-// The spectrum arrives as a 64-band `uniform float u_spectrum[64]`: GLSLEffect
-// only sets float uniforms and Cinnamon exposes no usable Cogl context for a
-// texture layer, so an array is the portable route (same as BlurCinnamon).
 
 let _seq = Math.floor(Math.random() * 10000);
 const _text_cache = {};

@@ -161,7 +161,6 @@ class QBarsVisualizer extends QVisualizer {
   }
   
   // Linear interpolation between adjacent bands.
-  // https://en.wikipedia.org/wiki/Linear_interpolation
   _sample_linear(vals, u, N) {
     if (N < 2) return clamp01(vals[0] || 0);
     const f = u * (N - 1);

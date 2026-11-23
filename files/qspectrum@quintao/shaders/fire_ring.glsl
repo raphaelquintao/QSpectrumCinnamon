@@ -1,26 +1,12 @@
-// Fire Ring — 64 independent flame tongues around a hoop, each one licking on
-// its own and growing with its own spectrum band. Slow, local motion only: no
-// global advection, so the ring never spins.
-// QSpectrum advanced preset. Original GLSL. Noise/hash/technique sources: see
-// ATTRIBUTIONS.md.
+// Copyright (c) 2026 - Raphael Quintao <raphaelquintao@gmail.com>
+// https://github.com/raphaelquintao/qspectrumcinnamon
+// SPDX-License-Identifier: Apache-2.0
 //
-// Layout: `p` is normalised so the canvas half-height is 1.0, i.e. the nearest
-// canvas edge sits at r = 1.0. Every radius below is bounded well inside that
-// and the final coverage fades to zero before it, so the animation can never
-// clamp against an edge.
-//
-// Each flame lives in its own frame at angle theta_i: `fd` points radially
-// outward (the flame grows along it) and `fn` is lateral. Its tongue is a
-// teardrop — thin at the base, widest low, pointed at the tip — warped by two
-// per-flame noise octaves so it flickers on its own, with a lean toward the tip
-// so it curves. The bases overlap into a continuous sheet while the tips stay
-// separate, which reads as a ring made of individual flames.
-//
-// Temperature comes from the distance to the hoop, not from each flame, so the
-// bright edge stays a thin hot line instead of blowing out where flames overlap:
-// white at the rim, cooling through yellow and orange to deep red at the tips.
-//
-// No particles, no smoke, no sparks: just the fire.
+// Fire Ring - 64 independent flame tongues around a hoop, each one licking on
+// its own and growing with its own spectrum band.
+
+// QSpectrum advanced preset. Original GLSL Shader
+
 
 uniform float u_time;
 uniform float u_intensity;
@@ -64,13 +50,6 @@ float vnoise(vec2 p) {
 vec4 fire_ramp(float x) {
   x = clamp(x, 0.0, 1.0);
   vec4 c = vec4(0.030, 0.002, 0.150, 0.40);
-  //  c = mix(c, vec3(0.420, 0.030, 0.003), smoothstep(0.00, 0.18, x));
-  //  c = mix(c, vec3(0.850, 0.130, 0.010), smoothstep(0.18, 0.38, x));
-  //  c = mix(c, vec3(1.000, 0.360, 0.035), smoothstep(0.38, 0.56, x));
-  //  c = mix(c, vec3(1.000, 0.620, 0.100), smoothstep(0.56, 0.72, x));
-  //  c = mix(c, vec3(1.000, 0.850, 0.320), smoothstep(0.72, 0.86, x));
-  //  c = mix(c, vec3(1.000, 0.850, 0.380), smoothstep(0.77, 0.91, x));
-  //
   c = mix(c, vec4(0.920, 0.875, 0.503, 0.50), smoothstep(0.00, 0.13, x));
   c = mix(c, vec4(0.420, 0.030, 0.003, 0.50), smoothstep(0.00, 0.15, x));
   c = mix(c, vec4(0.420, 0.030, 0.003, 0.40), smoothstep(0.00, 0.17, x));
@@ -78,13 +57,9 @@ vec4 fire_ramp(float x) {
   c = mix(c, vec4(1.000, 0.360, 0.035, 0.90), smoothstep(0.38, 0.56, x));
   c = mix(c, vec4(1.000, 0.620, 0.100, 0.90), smoothstep(0.56, 0.82, x));
   c = mix(c, vec4(1.000, 0.850, 0.320, 0.90), smoothstep(0.72, 0.86, x));
-  //  c = mix(c, vec3(1.000, 0.850, 0.380), smoothstep(0.77, 0.91, x));
   c = mix(c, vec4(1.000, 0.750, 0.380, 1.00), smoothstep(0.82, 0.85, x));
-  //  c = mix(c, vec3(1.000, 0.650, 0.380), smoothstep(0.83, 0.90, x));
-
-  c = mix(c, vec4(1.000, 0.875, 0.500, 0.9), smoothstep(0.86, 0.96, x));
+  c = mix(c, vec4(1.000, 0.875, 0.500, 0.90), smoothstep(0.86, 0.96, x));
   c = mix(c, vec4(0.700, 0.875, 0.600, 0.90), smoothstep(0.87, 0.96, x));
-  //  c = mix(c, vec3(1.000, 0.995, 0.960), smoothstep(0.99, 1.00, x));
   return c;
 }
 
@@ -99,9 +74,9 @@ void main() {
   float treble = clamp(u_treble, 0.0, 1.0);
   float level = clamp(u_level, 0.0, 1.0);
   float beat = clamp(u_beat, 0.0, 1.0);
-  // Gentle agitation only; the fire should breathe.
+  // Gentle agitation only, breathe.
   float flick = 1.7;
-//  flick += 0.01 * treble;
+  //  flick += 0.01 * treble; // Feels oddly.
   float tt = t * flick;
 
   // --- hoop -----------------------------------------------------------------
